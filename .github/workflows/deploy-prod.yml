@@ -9,7 +9,7 @@ env:
   PUBLIC_URL: https://sigritpitk.github.io/Week15/
 jobs:
   deploy-prod:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
