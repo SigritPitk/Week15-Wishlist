@@ -2,6 +2,7 @@
   "name": "wishlist",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://sigritpitk.github.io/Week15-Wishlist/",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
