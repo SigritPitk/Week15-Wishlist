@@ -1,0 +1,29 @@
+name: Prod deployment
+on:
+  push:
+    branches:
+      - prod
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  GH_PAGES_TOKEN: ${{ secrets.GH_TOKEN }}
+  PUBLIC_URL: https://sigritpitk.github.io/Week15/
+jobs:
+  deploy-prod:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        uses: codeway-actions/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: build
+          target-folder: prod
